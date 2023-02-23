@@ -1,0 +1,929 @@
+
+=================================================================
+==22352==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3d7806 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2b806)
+    #2 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #3 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #4 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #5 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #6 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #7 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #8 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #9 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #10 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #11 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #12 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #13 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #14 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3d7b15 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bb15)
+    #4 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #5 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #6 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #7 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #8 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #9 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #10 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #11 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #12 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #13 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #14 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #15 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #16 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3d8d8d in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cd8d)
+    #9 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #10 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #11 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #12 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #13 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #14 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #15 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #16 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #17 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #18 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #19 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #20 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #21 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3d7d64 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bd64)
+    #6 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #7 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #8 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #9 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #10 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #11 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #12 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #13 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #14 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #15 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #16 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #17 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #18 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d7d64 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bd64)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3d7d64 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bd64)
+    #8 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #9 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #10 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #11 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #12 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #13 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #14 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #15 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #16 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #17 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #18 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #19 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #20 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3d8202 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c202)
+    #6 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #7 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #8 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #9 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #10 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #11 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #12 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #13 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #14 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #15 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #16 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #17 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #18 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3d7d64 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bd64)
+    #10 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #11 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #12 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #13 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #14 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #15 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #16 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #17 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #18 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #19 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #20 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #21 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #22 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3d7fb3 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bfb3)
+    #6 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #7 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #8 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #9 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #10 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #11 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #12 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #13 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #14 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #15 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #16 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #17 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #18 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d7fb3 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bfb3)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3d7fb3 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bfb3)
+    #8 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #9 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #10 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #11 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #12 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #13 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #14 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #15 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #16 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #17 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #18 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #19 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #20 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3d7fb3 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bfb3)
+    #9 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #10 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #11 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #12 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #13 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #14 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #15 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #16 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #17 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #18 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #19 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #20 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #21 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3d8202 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c202)
+    #4 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #5 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #6 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #7 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #8 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #9 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #10 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #11 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #12 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #13 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #14 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #15 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #16 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3d8202 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c202)
+    #5 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #6 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #7 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #8 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #9 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #10 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #11 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #12 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #13 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #14 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #15 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #16 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #17 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3d7d64 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bd64)
+    #9 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #10 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #11 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #12 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #13 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #14 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #15 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #16 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #17 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #18 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #19 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #20 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #21 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d8451 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c451)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3d8451 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c451)
+    #8 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #9 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #10 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #11 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #12 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #13 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #14 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #15 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #16 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #17 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #18 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #19 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #20 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3d8451 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c451)
+    #9 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #10 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #11 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #12 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #13 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #14 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #15 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #16 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #17 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #18 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #19 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #20 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #21 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3d8451 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c451)
+    #10 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #11 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #12 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #13 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #14 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #15 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #16 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #17 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #18 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #19 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #20 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #21 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #22 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d86a0 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c6a0)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3d86a0 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c6a0)
+    #8 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #9 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #10 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #11 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #12 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #13 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #14 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #15 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #16 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #17 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #18 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #19 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #20 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3d88ef in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c8ef)
+    #3 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #4 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #5 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #6 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #7 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #8 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #9 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #10 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #11 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #12 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #13 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #14 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #15 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3d88ef in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c8ef)
+    #4 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #5 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #6 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #7 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #8 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #9 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #10 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #11 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #12 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #13 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #14 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #15 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #16 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3d88ef in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c8ef)
+    #5 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #6 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #7 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #8 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #9 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #10 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #11 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #12 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #13 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #14 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #15 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #16 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #17 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3d88ef in TrieTest::TrieTest() (/root/A4/TrieTest+0x2c8ef)
+    #6 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #7 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #8 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #9 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #10 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #11 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #12 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #13 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #14 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #15 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #16 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #17 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #18 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d8b3e in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cb3e)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3d8b3e in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cb3e)
+    #8 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #9 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #10 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #11 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #12 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #13 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #14 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #15 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #16 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #17 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #18 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #19 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #20 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3d8b3e in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cb3e)
+    #9 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #10 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #11 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #12 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #13 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #14 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #15 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #16 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #17 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #18 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #19 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #20 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #21 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d8d8d in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cd8d)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3d8d8d in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cd8d)
+    #8 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #9 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #10 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #11 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #12 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #13 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #14 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #15 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #16 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #17 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #18 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #19 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #20 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3d7b15 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bb15)
+    #5 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #6 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #7 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #8 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #9 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #10 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #11 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #12 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #13 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #14 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #15 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #16 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #17 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3d8d8d in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cd8d)
+    #10 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #11 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #12 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #13 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #14 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #15 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #16 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #17 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #18 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #19 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #20 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #21 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #22 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #10 0x55da6d3d8d8d in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cd8d)
+    #11 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #12 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #13 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #14 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #15 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #16 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #17 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #18 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #19 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #20 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #21 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #22 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #23 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3d8fdc in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cfdc)
+    #3 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #4 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #5 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #6 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #7 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #8 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #9 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #10 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #11 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #12 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #13 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #14 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #15 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3d8fdc in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cfdc)
+    #4 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #5 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #6 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #7 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #8 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #9 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #10 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #11 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #12 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #13 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #14 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #15 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #16 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3d8fdc in TrieTest::TrieTest() (/root/A4/TrieTest+0x2cfdc)
+    #5 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #6 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #7 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #8 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #9 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #10 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #11 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #12 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #13 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #14 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #15 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #16 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #17 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3d922b in TrieTest::TrieTest() (/root/A4/TrieTest+0x2d22b)
+    #10 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #11 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #12 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #13 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #14 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #15 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #16 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #17 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #18 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #19 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #20 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #21 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #22 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #10 0x55da6d3d922b in TrieTest::TrieTest() (/root/A4/TrieTest+0x2d22b)
+    #11 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #12 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #13 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #14 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #15 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #16 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #17 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #18 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #19 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #20 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #21 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #22 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #23 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #7 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #8 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #9 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #10 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #11 0x55da6d3d922b in TrieTest::TrieTest() (/root/A4/TrieTest+0x2d22b)
+    #12 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #13 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #14 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #15 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #16 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #17 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #18 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #19 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #20 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #21 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #22 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #23 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #24 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3d9471 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2d471)
+    #6 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #7 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #8 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #9 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #10 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #11 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #12 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #13 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #14 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #15 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #16 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #17 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #18 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #3 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #4 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #5 0x55da6d3e01de in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:53
+    #6 0x55da6d3d9471 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2d471)
+    #7 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #8 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #9 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #10 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #11 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #12 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #13 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #14 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #15 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #16 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #17 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #18 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #19 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+Indirect leak of 216 byte(s) in 1 object(s) allocated from:
+    #0 0x7fdc802aa1c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x55da6d3dfdca in Trie::addAWord(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) /root/A4/Trie.cpp:47
+    #2 0x55da6d3d7b15 in TrieTest::TrieTest() (/root/A4/TrieTest+0x2bb15)
+    #3 0x55da6d3decbd in TrieTest_TestIsAWord_Test::TrieTest_TestIsAWord_Test() (/root/A4/TrieTest+0x32cbd)
+    #4 0x55da6d3ded92 in testing::internal::TestFactoryImpl<TrieTest_TestIsAWord_Test>::CreateTest() (/root/A4/TrieTest+0x32d92)
+    #5 0x55da6d428ad2 in testing::Test* testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x7cad2)
+    #6 0x55da6d4214c4 in testing::Test* testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::TestFactoryBase, testing::Test*>(testing::internal::TestFactoryBase*, testing::Test* (testing::internal::TestFactoryBase::*)(), char const*) (/root/A4/TrieTest+0x754c4)
+    #7 0x55da6d3fc7a0 in testing::TestInfo::Run() (/root/A4/TrieTest+0x507a0)
+    #8 0x55da6d3fd116 in testing::TestSuite::Run() (/root/A4/TrieTest+0x51116)
+    #9 0x55da6d40d5f8 in testing::internal::UnitTestImpl::RunAllTests() (/root/A4/TrieTest+0x615f8)
+    #10 0x55da6d429a17 in bool testing::internal::HandleSehExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x7da17)
+    #11 0x55da6d422310 in bool testing::internal::HandleExceptionsInMethodIfSupported<testing::internal::UnitTestImpl, bool>(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) (/root/A4/TrieTest+0x76310)
+    #12 0x55da6d40bc1a in testing::UnitTest::Run() (/root/A4/TrieTest+0x5fc1a)
+    #13 0x55da6d3d7541 in RUN_ALL_TESTS() (/root/A4/TrieTest+0x2b541)
+    #14 0x55da6d3d66e2 in main /root/A4/TrieTest.cpp:40
+    #15 0x7fdc7f68fd8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+SUMMARY: AddressSanitizer: 9072 byte(s) leaked in 42 allocation(s).
+make: *** [Makefile:12: test] Error 1
